@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../favicon.ico"> -->
 
-    <title>Grid Template for Bootstrap</title>
+    <title>Is Nenshi still Mayor?</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -38,8 +38,8 @@
         <div class="col-6 text-center"><h4><span class="smith" id="smithvote"></span> votes for Smith</h4></div>
       </div>
       <div class="row">
-        <div class="col-6 text-center">(<span class="nenshi" id="nenshiper"></span>%)</div>
-        <div class="col-6 text-center">(<span class="smith" id="smithper"></span>%)</div>
+        <div class="col-6 text-center">(<span class="nenshi" id="nenshiper"></span>)</div>
+        <div class="col-6 text-center">(<span class="smith" id="smithper"></span>)</div>
       </div>
       <div class="row">
         <!-- <div class="col-12">Well, is he?</div> -->
@@ -104,6 +104,9 @@
         <div class="col-6 text-center"><span class="nenshi" id="nenshi14"></span></div>
         <div class="col-6 text-center"><span class="smith" id="smith14"></span></div>
       </div>
+      <div class="row">
+        <div class="col-12" id="refresh"></div>
+      </div>
     </div> <!-- /container -->
 
 
@@ -134,26 +137,37 @@
           d.total_votes = +d.sum_total_votes;
         });
 
+        var overall = data.filter(function(d) {return d.ward ==="0"})
+        var reporting = +overall[0]["sum_city_wide_stations_reporting"] + +overall[0]["sum_ward_stations_reporting"];
+        var total = 266;
+        var percent = reporting/total*100;
+        $("#numerator").text(reporting);
+        $("#denominator").text(total + " (" + Math.round(percent) + "%)");
+
         var wards = d3.nest()
           .key(function(d) {return d.ward})
+          .key(function(d) {return d.candidate_name})
           .entries(data)
 
         wards.forEach(function(d) {
-          var dif = d.values[0].total_votes - d.values[1].total_votes;
+          var votes = {}
+          votes[d.values[0].key] = d.values[0].values[0].total_votes
+          votes[d.values[1].key] = d.values[1].values[0].total_votes
+          var dif = votes["NENSHI, Naheed Kurban"] - votes["SMITH, Bill"];
           if (dif >=0) {
             if (d.key === "0") {
-              $("#nenshi"+d.key).html("+"+Math.abs(dif)+ " in citywide polls");
+              $("#nenshi"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " in citywide polls");
             } else {
-              $("#nenshi"+d.key).html("+"+Math.abs(dif)+ " in ward " + d.key);
+              $("#nenshi"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " in ward " + d.key);
             }
             $("#smith"+d.key).html("");
 
           }
           if (dif <0) {
             if (d.key === "0") {
-              $("#smith"+d.key).html("+"+Math.abs(dif)+ " in citywide polls");
+              $("#smith"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " in citywide polls");
             } else {
-              $("#smith"+d.key).html("+"+Math.abs(dif)+ " in ward " + d.key);
+              $("#smith"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " in ward " + d.key);
             }
             $("#nenshi"+d.key).html("");
           }
@@ -168,20 +182,18 @@
         context: document.body
       }).done(function(data) {
 
-        var reporting = data[0]["sum_city_wide_stations_reporting"] + data[0]["sum_city_wide_stations_reporting"];
-        var total = 266;
-        var percent = reporting/total*100;
-        $("#numerator").text(reporting);
-        $("#denominator").text(total + " (" + Math.round(percent) + "%)");
+        var total = d3.sum(data, function(d) {
+          return +d.sum_total_votes
+        })
 
         data.forEach(function(d) {
           if (d.candidate_name === "NENSHI, Naheed Kurban") {
-            $("#nenshivote").text(d.sum_total_votes);
-            // $("#nenshiper").html(d.percentage_of_votes);
+            $("#nenshivote").html(d3.format(",.0f")(d.sum_total_votes));
+            $("#nenshiper").html(d3.format(".1%")(d.sum_total_votes/total));
           }
           if (d.candidate_name === "SMITH, Bill") {
-            $("#smithvote").text(d.sum_total_votes);
-            // $("#smithper").text(d.percentage_of_votes);
+            $("#smithvote").html(d3.format(",.0f")(d.sum_total_votes));
+            $("#smithper").html(d3.format(".1%")(d.sum_total_votes/total));
           }
         })
       });
