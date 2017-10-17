@@ -156,7 +156,7 @@
           var dif = votes["NENSHI, Naheed Kurban"] - votes["SMITH, Bill"];
           if (dif >=0) {
             if (d.key === "0") {
-              $("#nenshi"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " in citywide polls");
+              $("#nenshi"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " city wide");
             } else {
               $("#nenshi"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " in ward " + d.key);
             }
@@ -165,7 +165,7 @@
           }
           if (dif <0) {
             if (d.key === "0") {
-              $("#smith"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " in citywide polls");
+              $("#smith"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " city wide");
             } else {
               $("#smith"+d.key).html("+"+d3.format(",.0f")(Math.abs(dif))+ " in ward " + d.key);
             }
