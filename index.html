@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+    <title>Grid Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="grid.css" rel="stylesheet"> -->
+    <style>
+    .nenshi {
+      color: #6c2b7d;
+    }
+    .smith {
+      color: #54c3d7;
+    }
+    </style>
+  </head>
+
+  <body>
+    <!-- <div class="container" style="display: none"> -->
+    <div class="container">
+
+      <h4 class="text-center">Is Nenshi still mayor?</h4>
+      <h3 id="summary" class="text-center">Yep.</h3>
+      <div class="row">
+        <div class="col-12 text-center"><span id="numerator"></span> out of <span id="denominator"></span> polls reporting</div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><h4><span class="nenshi" id="nenshivote"></span> votes for Nenshi</h4></div>
+        <div class="col-6 text-center"><h4><span class="smith" id="smithvote"></span> votes for Smith</h4></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center">(<span class="nenshi" id="nenshiper"></span>%)</div>
+        <div class="col-6 text-center">(<span class="smith" id="smithper"></span>%)</div>
+      </div>
+      <div class="row">
+        <!-- <div class="col-12">Well, is he?</div> -->
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi0"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith0"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi1"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith1"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi2"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith2"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi3"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith3"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi4"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith4"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi5"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith5"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi6"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith6"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi7"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith7"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi8"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith8"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi9"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith9"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi10"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith10"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi11"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith11"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi12"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith12"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi13"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith13"></span></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-center"><span class="nenshi" id="nenshi14"></span></div>
+        <div class="col-6 text-center"><span class="smith" id="smith14"></span></div>
+      </div>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.min.js"></script>
+    <script>
+    // var api = 'https://data.calgary.ca/resource/wfy7-ea5g.json?$query=SELECT%20*%20WHERE%20candidate_name=%22SMITH,%20Bill%22%20OR%20candidate_name=%22NENSHI,%20Naheed%20Kurban%22';
+    var api = 'https://data.calgary.ca/resource/wfy7-ea5g.json?$query=SELECT%20candidate_name,ward,%20sum(total_votes),sum(city_wide_stations_reporting),%20sum(ward_stations_reporting)%20WHERE%20office=%22Mayor%22%20GROUP%20BY%20candidate_name,%20ward';
+    var totalvotes = 'https://data.calgary.ca/resource/wfy7-ea5g.json?$query=SELECT%20candidate_name,%20sum(total_votes),sum(city_wide_stations_reporting),%20sum(ward_stations_reporting)%20WHERE%20office=%22Mayor%22%20GROUP%20BY%20candidate_name'
+    var ajax_call = function() {
+      //your jQuery ajax code
+      $.ajax({
+        url: api,
+        context: document.body
+      }).done(function(data) {
+
+        data = data.filter(function(d) {
+          if (d.candidate_name === "NENSHI, Naheed Kurban" | d.candidate_name === "SMITH, Bill") return d;
+        })
+        data.forEach(function(d) {
+          d.total_votes = +d.sum_total_votes;
+        });
+
+        var wards = d3.nest()
+          .key(function(d) {return d.ward})
+          .entries(data)
+
+        wards.forEach(function(d) {
+          var dif = d.values[0].total_votes - d.values[1].total_votes;
+          if (dif >=0) {
+            if (d.key === "0") {
+              $("#nenshi"+d.key).html("+"+Math.abs(dif)+ " in citywide polls");
+            } else {
+              $("#nenshi"+d.key).html("+"+Math.abs(dif)+ " in ward " + d.key);
+            }
+            $("#smith"+d.key).html("");
+
+          }
+          if (dif <0) {
+            if (d.key === "0") {
+              $("#smith"+d.key).html("+"+Math.abs(dif)+ " in citywide polls");
+            } else {
+              $("#smith"+d.key).html("+"+Math.abs(dif)+ " in ward " + d.key);
+            }
+            $("#nenshi"+d.key).html("");
+          }
+        });
+      });
+    };
+
+    var ajax_call2 = function() {
+
+      $.ajax({
+        url: totalvotes,
+        context: document.body
+      }).done(function(data) {
+
+        var reporting = data[0]["sum_city_wide_stations_reporting"] + data[0]["sum_city_wide_stations_reporting"];
+        var total = 266;
+        var percent = reporting/total*100;
+        $("#numerator").text(reporting);
+        $("#denominator").text(total + " (" + Math.round(percent) + "%)");
+
+        data.forEach(function(d) {
+          if (d.candidate_name === "NENSHI, Naheed Kurban") {
+            $("#nenshivote").text(d.sum_total_votes);
+            // $("#nenshiper").html(d.percentage_of_votes);
+          }
+          if (d.candidate_name === "SMITH, Bill") {
+            $("#smithvote").text(d.sum_total_votes);
+            // $("#smithper").text(d.percentage_of_votes);
+          }
+        })
+      });
+    };
+
+
+    ajax_call();
+    ajax_call2();
+
+    var interval = 1000 * 60 * 1.5; // where X is your every X minutes
+
+    setInterval(ajax_call, interval);
+    setInterval(ajax_call2, interval);
+
+    </script>
+  </body>
+</html>
