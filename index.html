@@ -122,7 +122,7 @@
     <script>
     // var api = 'https://data.calgary.ca/resource/wfy7-ea5g.json?$query=SELECT%20*%20WHERE%20candidate_name=%22SMITH,%20Bill%22%20OR%20candidate_name=%22NENSHI,%20Naheed%20Kurban%22';
     var api = 'https://data.calgary.ca/resource/wfy7-ea5g.json?$query=SELECT%20candidate_name,ward,%20sum(total_votes),sum(city_wide_stations_reporting),%20sum(ward_stations_reporting)%20WHERE%20office=%22Mayor%22%20GROUP%20BY%20candidate_name,%20ward';
-    var totalvotes = 'https://data.calgary.ca/resource/wfy7-ea5g.json?$query=SELECT%20candidate_name,%20sum(total_votes),sum(city_wide_stations_reporting),%20sum(ward_stations_reporting)%20WHERE%20office=%22Mayor%22%20GROUP%20BY%20candidate_name'
+    var totalvotes = 'https://data.calgary.ca/resource/wfy7-ea5g.json?$query=SELECT%20candidate_name,%20sum(total_votes),sum(city_wide_stations_reporting),%20sum(ward_stations_reporting)%20WHERE%20office=%22Mayor%22%20AND%20ward=%270%27%20GROUP%20BY%20candidate_name'
     var ajax_call = function() {
       //your jQuery ajax code
       $.ajax({
